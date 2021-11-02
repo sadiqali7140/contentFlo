@@ -37,3 +37,6 @@ app.use('/users', userRoutes)
 
 const authentication = require('./routes/auth')
 app.use('/auth', authentication)
+
+const content = require('./routes/content')
+app.use('/content', content)

@@ -5,73 +5,150 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 
-// Content
+// GET Content
 router.get('/', (req, res, next) => {
-
-    Content.find().all()
-        .then((data) => res.json(data))
-        .catch(next);
-});
-
-// [WIP] Content by _id
-router.get('/:id', (req, res, next) => {
-    const id = req.params.id;
-
-    Content.findOne({
-        id: id
+    const token = req.headers['x-access-token']
+    if(!token) return res.json({
+        message: "Token Not Found"
     })
-        .then((results) => res.json({
-            data: {
-                _id: results._id,
-                first_name: results.first_name,
-                last_name: results.last_name,
-                email: results.email,
-                role: results.role
+    else {
+        jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {
+            if(err) return res.json({
+                message: "Token Authentication Failed"
+            })
+            else {
+                Content.find().all()
+                .then((data) => res.json(data))
+                .catch(next);
             }
-        }))
-        .catch(next);
-});
+        })
+    }
+})
 
-// Add content by _id
+// GET Content by content_id
+router.get('/:id', (req, res, next) => {
+    const token = req.headers['x-access-token']
+    if(!token) return res.json({
+        message: "Token Not Found"
+    })
+    else {
+        jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {
+            if(err) return res.json({
+                message: "Token Authentication Failed"
+            })
+            else {
+                            
+                const id = req.params.id
+                Content.findOne({
+                    id: id
+                })
+                    .then((results) => res.json({
+                        data: {
+                            image_url: results.image_url,
+                            title: results.title,
+                            description: results.description,
+                            caption: results.caption,
+                            approved: results.approved,
+                            created_date: results.created_date,
+                            upload_date:  results.upload_date
+                        }
+                    }))
+                    .catch(next)
+            }
+        })
+    }
+})
+
+// GET Content by client_id
+router.get('/:client', (req, res, next) => {
+    const token = req.headers['x-access-token']
+    if(!token) return res.json({
+        message: "Token Not Found"
+    })
+    else {
+        jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {
+            if(err) return res.json({
+                message: "Token Authentication Failed"
+            })
+            else {
+                            
+                const id = req.params.client
+                Content.find({
+                    client: {
+                        type: Scema.Types.ObjectID,
+                        ref: id
+                    }
+                })
+                    .then((results) => res.json({
+                        data: {
+                            image_url: results.image_url,
+                            title: results.title,
+                            description: results.description,
+                            caption: results.caption,
+                            approved: results.approved,
+                            created_date: results.created_date,
+                            upload_date:  results.upload_date
+                        }
+                    }))
+                    .catch(next)
+            }
+        })
+    }
+})
+
+// ADD content by _id
 router.post('/:id', async (req, res, next) => {
-    const userPassword = await bcrypt.hash(req.body.password, 10);
-
-    const user = new User({
-        first_name: req.body.first_name.toLowerCase(),
-        last_name: req.body.last_name.toLowerCase(),
-        email: req.body.email.toLowerCase(),
-        password: userPassword,
-        role: 'client',
-    });
-
-    res.set('Content-Type', 'application/json');
-
-    user.save()
-        .then(results => {
-            console.log(results)
-            res.send({
-                data: {
-                    _id: results._id,
-                    first_name: results.first_name,
-                    last_name: results.last_name,
-                    email: results.email,
-                    role: results.role
-                }
+    const token = req.headers['x-access-token']
+    if(!token) return res.json({
+        message: "Token Not Found"
+    })
+    else {
+        jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {
+            if(err) return res.json({
+                message: "Token Authentication Failed"
             })
+            else {
+                const content = new Content({
+                    image_url: req.body.image_url.toLowerCase(),
+                    title: req.body.title,
+                    description: req.body.description,
+                    caption: req.body.caption,
+                    approved: false,
+                    created_date: Date.now,
+                    upload_date: req.body.upload_date
+                })
+
+                res.set('Content-Type', 'application/json');
+
+                content.save()
+                .then(results => {
+                    res.send({
+                        data: {
+                            image_url: results.image_url,
+                            title: results.title,
+                            description: results.description,
+                            caption: results.caption,
+                            created_date: results.created_date,
+                            upload_date: results.upload_date
+                        }
+                    })
+                })
+                .catch((err) => {
+                    console.log(err)
+                    res.send({
+                        error: err
+                    })
+                })
+            }
         })
-        .catch((err) => {
-            console.log(err)
-            res.send({
-                error: err
-            })
-        })
-});
+    }
+})
 
 // Delete user by _id
 router.delete('/:id', (req, res, next) => {
     const id = req.params.id;
 
-    User.deleteOne({
+    Content.deleteOne({
         _id: id
     })
         .then((results) => res.json({
@@ -79,7 +156,7 @@ router.delete('/:id', (req, res, next) => {
                 message: `Successfully yeeted ${id}`
             }
         }))
-        .catch(next);
-});
+        .catch(next)
+})
 
 module.exports = router

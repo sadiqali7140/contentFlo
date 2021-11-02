@@ -3,6 +3,7 @@ const router = express.Router();
 const Content = require('../models/content');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const { Schema } = require('mongoose');
 
 
 // GET Content
@@ -75,7 +76,7 @@ router.get('/:client', (req, res, next) => {
                 const id = req.params.client
                 Content.find({
                     client: {
-                        type: Scema.Types.ObjectID,
+                        type: Schema.Types.ObjectID,
                         ref: id
                     }
                 })
@@ -97,7 +98,7 @@ router.get('/:client', (req, res, next) => {
 })
 
 // ADD content by _id
-router.post('/:id', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     const token = req.headers['x-access-token']
     if(!token) return res.json({
         message: "Token Not Found"
@@ -109,6 +110,10 @@ router.post('/:id', async (req, res, next) => {
             })
             else {
                 const content = new Content({
+                    client: {
+                        type: Schema.Types.ObjectID,
+                        ref: req.body.user
+                    },
                     image_url: req.body.image_url.toLowerCase(),
                     title: req.body.title,
                     description: req.body.description,

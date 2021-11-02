@@ -13,7 +13,6 @@ const bcrypt = require('bcrypt');
 
 // Users
 router.get('/', (req, res, next) => {
-
     const token = req.headers['x-access-token']
     if(!token) return res.json({
         message: "Token Not Found"
@@ -32,15 +31,21 @@ router.get('/', (req, res, next) => {
 
     }
 
-});
+})
 
 // User by email
-router.get('/:email', (req, res, next) => {
-    const email = req.params.email;
+router.get('/email', (req, res, next) => {
+    // const email = req.body.email;
+    // console.log(email)
 
-    User.findOne({
-        email: email
+    const token = req.headers['x-access-token']
+    if(!token) return res.json({
+        message: "Token Not Found"
     })
+    else {
+        User.findOne({
+            email: req.body.email
+        })
         .then((results) => res.json({
             data: {
                 _id: results._id,
@@ -51,7 +56,8 @@ router.get('/:email', (req, res, next) => {
             }
         }))
         .catch(next);
-});
+    }
+})
 
 router.post('/', async (req, res, next) => {
     const userPassword = await bcrypt.hash(req.body.password, 10);
@@ -85,7 +91,7 @@ router.post('/', async (req, res, next) => {
                 error: err
             })
         })
-});
+})
 
 // Delete user by _id
 router.delete('/:id', (req, res, next) => {
@@ -100,6 +106,6 @@ router.delete('/:id', (req, res, next) => {
             }
         }))
         .catch(next);
-});
+})
 
 module.exports = router

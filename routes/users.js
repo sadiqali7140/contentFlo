@@ -13,9 +13,24 @@ const bcrypt = require('bcrypt');
 // Users
 router.get('/', (req, res, next) => {
 
-    User.find().all()
-        .then((data) => res.json(data))
-        .catch(next);
+    const token = req.headers['x-access-token']
+    if(!token) return res.json({
+        message: "Token Not Found"
+    })
+    else {
+        jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {
+            if(err) return res.json({
+                message: "Token Authentication Failed"
+            })
+            else {
+                User.find().all()
+                    .then((data) => res.json(data))
+                    .catch(next);
+            }
+        })
+
+    }
+
 });
 
 // User by email

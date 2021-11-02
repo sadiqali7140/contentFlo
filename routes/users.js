@@ -4,10 +4,11 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-// GET /users
-// GET /users/email
-// POST /users
-// DELETE /users
+/** GET /users
+ * GET /users/email
+ * POST /users
+ * DELETE /users
+ **/
 
 
 // Users

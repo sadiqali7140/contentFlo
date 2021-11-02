@@ -4,11 +4,6 @@ const Content = require('../models/content');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-// GET /users
-// GET /users/email
-// POST /users
-// DELETE /users
-
 
 // Content
 router.get('/', (req, res, next) => {

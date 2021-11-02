@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+require('crypto').randomBytes(64).toString('hex')
 require('dotenv').config()
 
 const app = express()
@@ -32,6 +33,7 @@ app.listen(port, () => {
 
 
 const userRoutes = require('./routes/users')
-// const authentication = require('./routes/auth')
-// app.use('/auth', authentication)
 app.use('/users', userRoutes)
+
+const authentication = require('./routes/auth')
+app.use('/auth', authentication)

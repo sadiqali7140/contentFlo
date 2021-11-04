@@ -29,8 +29,8 @@ router.post('/login', async (req, res, next) => {
                         _id: dbUser._id,
                         email: dbUser.email
                     }
-                    console.log(payload)
-                    console.log(process.env.JWT_SECRET)
+                    // console.log(payload)
+                    // console.log(process.env.JWT_SECRET)
                     var token = jwt.sign(
                         payload,
                         process.env.JWT_SECRET,

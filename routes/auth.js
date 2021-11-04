@@ -52,7 +52,7 @@ router.post('/login', async (req, res, next) => {
         })
 })
 
-router.post( '/register', (req, res, next) => {
+router.post( '/register', async (req, res, next) => {
     const userPassword = await bcrypt.hash(req.body.password, 10);
 
     const user = new User({

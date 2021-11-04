@@ -52,4 +52,41 @@ router.post('/login', async (req, res, next) => {
         })
 })
 
+router.post( '/register', (req, res, next) => {
+    const userPassword = await bcrypt.hash(req.body.password, 10);
+
+    const user = new User({
+        first_name: req.body.first_name.toLowerCase(),
+        last_name: req.body.last_name.toLowerCase(),
+        email: req.body.email.toLowerCase(),
+        password: userPassword,
+        role: req.body.role.toLowerCase(),
+    });
+
+    //res.set('Content-Type', 'application/json');
+
+    user.save()
+        .then(results => {
+            console.log(results)
+            res.send({
+                data: {
+                    _id: results._id,
+                    first_name: results.first_name,
+                    last_name: results.last_name,
+                    email: results.email,
+                    role: results.role
+                }
+            })
+        })
+        .catch((err) => {
+            console.log(err)
+            res.send({
+                error: err
+            })
+        })
+
+}
+
+)
+
 module.exports = router

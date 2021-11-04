@@ -4,9 +4,14 @@ const Content = require('../models/content');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
+// GET /users
+// GET /users/email
+// POST /users
+// DELETE /users
+
 
 // Content
-router.get('/', (req, res, next) => {
+router.get('/content', (req, res, next) => {
 
     Content.find().all()
         .then((data) => res.json(data))
@@ -82,4 +87,4 @@ router.delete('/:id', (req, res, next) => {
         .catch(next);
 });
 
-module.exports = router
+module.exports = router;

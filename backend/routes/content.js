@@ -5,6 +5,11 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { Schema } = require('mongoose');
 
+// GET /users
+// GET /users/email
+// POST /users
+// DELETE /users
+
 
 // GET Content
 router.get('/', (req, res, next) => {
@@ -164,4 +169,4 @@ router.delete('/:id', (req, res, next) => {
         .catch(next)
 })
 
-module.exports = router
+module.exports = router;

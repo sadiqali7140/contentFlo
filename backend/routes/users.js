@@ -44,7 +44,7 @@ router.get('/email', (req, res, next) => {
     })
     else {
         User.findOne({
-            email: req.body.email
+            email: req.params.email
         })
         .then((results) => res.json({
             data: {

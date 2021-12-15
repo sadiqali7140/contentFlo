@@ -13,7 +13,7 @@ body {
 .ActionItemContainer {
     min-width: 200px;
     min-height: 200px;
-    background-color: whitesmoke;
+    background-color: white;
     width: 30%;
     padding: 1%;
 }
@@ -21,7 +21,7 @@ body {
 .ComingUpContainer {
     min-width: 200px;
     min-height: 200px;
-    background-color:beige;
+    background-color: white;
     width: 30%;
     padding: 1%;
 }
@@ -29,7 +29,7 @@ body {
 .LastNPostContainer {
     min-width: 200px;
     min-height: 200px;
-    background-color:brown;
+    background-color: white;
     width: 30%;
     padding: 1%;
 }

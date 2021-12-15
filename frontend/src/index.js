@@ -6,7 +6,6 @@ import Calendar from "./components/calendar/calendar";
 
 ReactDOM.render(
   // <QuickView />,
-  // <Home />,
-  <Calendar />,
+  <Home />,
   document.getElementById("root")
 );

@@ -1,19 +1,37 @@
 import React from "react";
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
+import interactionPlugin from "@fullcalendar/interaction"
 
 export default class DemoApp extends React.Component {
   render() {
     return (
       <FullCalendar
-        plugins={[dayGridPlugin]}
+    //   headerToolbar={true} 
+      plugins={[dayGridPlugin, interactionPlugin]}
+        // eventContent={renderEventContent}
         initialView="dayGridMonth"
-        weekends={false}
+        weekends={true}
+        dateClick={this.handleDateClick}
         events={[
-          { title: "event 1", date: "2019-04-01" },
-          { title: "event 2", date: "2019-04-02" },
+            { title: "event 1", date: "2021-12-01" },
+            { title: "event 2", date: "2021-12-16" },
         ]}
       />
     );
+  }
+
+//   function renderEventContent(eventInfo) {
+//     return (
+//       <>
+//         <b>{eventInfo.timeText}</b>
+//         <i>{eventInfo.event.title}</i>
+//       </>
+//     )
+//   }
+
+  //function for click
+  handleDateClick = (arg) => {
+    alert(arg.dateStr)
   }
 }

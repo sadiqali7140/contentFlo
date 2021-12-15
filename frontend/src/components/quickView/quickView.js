@@ -38,7 +38,7 @@ function QuickView() {
             </Splide>
           </div>
         </div>
-        
+
         <div className="ComingUpContainer">
           <h1 className="primary-font">Coming Up</h1>
           <h4 className="primary-font">Lorem Ipsum Dotor</h4>
@@ -68,7 +68,7 @@ function QuickView() {
             </Splide>
           </div>
         </div>
-        
+
         <div className="LastNPostContainer">
           <h1 className="primary-font">Last 'N' Posts</h1>
           <h4 className="primary-font">Lorem Ipsum Dotor</h4>

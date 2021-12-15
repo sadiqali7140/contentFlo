@@ -1,0 +1,15 @@
+.Heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 24px;
+    padding: 5%;
+}
+
+.CardsContainer {
+    min-width: 200px;
+    min-height: 200px;
+    background-color: white;
+    width: 30%;
+    padding: 1%;
+}

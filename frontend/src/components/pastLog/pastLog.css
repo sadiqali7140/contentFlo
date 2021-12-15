@@ -1,0 +1,15 @@
+.Heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+    padding: 5%;
+}
+
+.StatContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 24px;
+    padding-bottom: 5%;
+}

@@ -1,0 +1,10 @@
+body {
+    background-color: rgb(235, 235, 235);
+}
+
+.Heading {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    /* font-size: 30pt; */
+}

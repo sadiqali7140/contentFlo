@@ -5,7 +5,7 @@ import "./contentFlagged.css";
 function ContentFlagged() {
   return (
     <div className="Heading">
-      <div className="CardsContainer"></div> //should have dynamic number of content
+      {/* <div className="CardsContainer"></div> */}
     </div>
   );
 }

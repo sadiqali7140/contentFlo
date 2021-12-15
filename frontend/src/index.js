@@ -5,8 +5,10 @@ import QuickView from "./components/quickView/quickView";
 // import Calendar from "./components/calendar/calendar";
 // import ContentPlan from "./pages/contentPlan/contentPlan";
 import Home from "./pages/home/home";
+import Revisions from "./pages/Revisions/revisions";
 
 ReactDOM.render(
-  <Home />,
+//   <Home />,
+  <Revisions />,
   document.getElementById("root")
 );

@@ -1,7 +1,7 @@
 import React from "react";
 // import ReactDOM from "react-dom";
 import "./quickView.css";
-import "../../index.css";
+// import "../../index.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 

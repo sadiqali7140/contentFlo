@@ -2,7 +2,7 @@ body {
     background-color: rgb(235, 235, 235);
 }
 
-.WelcomeContainer {
+.CalendarContainer {
     display: flex;
     flex-direction: row;
     padding-left: 5%;

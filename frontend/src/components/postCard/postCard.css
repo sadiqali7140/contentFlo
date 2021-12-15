@@ -1,0 +1,27 @@
+.Heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 24px;
+    padding: 5%;
+}
+
+.ContentCard {
+    min-width: 200px;
+    min-height: 200px;
+    background-color: white;
+    padding: 2%;
+}
+
+.ImageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2%;
+}
+
+.MetaData {
+    width: 100%;
+    padding-inline: 2%;
+    padding-bottom: 2%;
+}

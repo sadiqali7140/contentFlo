@@ -1,4 +1,5 @@
 import React from "react";
+// import "./calendar.css"
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import interactionPlugin from "@fullcalendar/interaction"
@@ -6,6 +7,7 @@ import interactionPlugin from "@fullcalendar/interaction"
 export default class DemoApp extends React.Component {
   render() {
     return (
+      <div className="CalendarContainer">
       <FullCalendar
     //   headerToolbar={true} 
       plugins={[dayGridPlugin, interactionPlugin]}
@@ -18,7 +20,8 @@ export default class DemoApp extends React.Component {
             { title: "event 2", date: "2021-12-16" },
         ]}
       />
-    );
+    </div>
+    )
   }
 
 //   function renderEventContent(eventInfo) {

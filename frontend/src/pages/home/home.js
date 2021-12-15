@@ -1,20 +1,23 @@
-import React from "react"
-import "./home.css"
-import "../../index.css"
-import QuickView from "../../components/quickView/quickView"
-import Calendar from "../../components/calendar/calendar"
-import Card from "../../components/card/card"
-import Carousel from "../../components/carousel/carousel"
+import React from "react";
+import "./home.css";
+import "../../index.css";
+import QuickView from "../../components/quickView/quickView";
+import Calendar from "../../components/calendar/calendar";
+// import PostCard from "../../components/postCard/postCard";
+import Carousel from "../../components/carousel/carousel";
 
 function Home() {
-    return(
-        <div>
-            <QuickView />,
-            <Calendar />,
-            {/* <Card />, */}
-            <Carousel />
-        </div>
-    )
+  return (
+    <div>
+      <div className="WelcomeContainer">
+        <h1 className="primary-font">Welcome back, Sadiq!</h1>
+      </div>
+      <QuickView />,
+      <Calendar />,
+      {/* <PostCard />, */}
+      <Carousel />
+    </div>
+  );
 }
 
-export default Home
+export default Home;

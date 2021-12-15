@@ -1,5 +1,5 @@
 import React from "react";
-import "./card.css";
+import "./calendarCard.css";
 import "../../index.css";
 
 function Card() {
@@ -10,13 +10,13 @@ function Card() {
           <div className="ContentContainer">
             <div className="ImageContainer">
               <img
-                src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
+                src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2068&q=80"
                 alt="new"
               ></img>
             </div>
             <div className="MetaData">
-              <h1 className="primary-font">Post Title</h1>
-              <p className="primary-font">Short description</p>
+              <h1 className="primary-font">August</h1>
+              <p className="primary-font">All Content Published!</p>
             </div>
           </div>
         </div>
@@ -25,4 +25,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default CalendarCard;

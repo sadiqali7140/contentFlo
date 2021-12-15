@@ -1,2 +1,45 @@
-/* body {
+body {
   background-color: black;
+}
+
+.Heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+    padding: 5%;
+}
+
+.ActionItemContainer {
+    min-width: 200px;
+    min-height: 200px;
+    background-color: whitesmoke;
+    width: 30%;
+    padding: 1%;
+}
+
+.ComingUpContainer {
+    min-width: 200px;
+    min-height: 200px;
+    background-color:beige;
+    width: 30%;
+    padding: 1%;
+}
+
+.LastNPostContainer {
+    min-width: 200px;
+    min-height: 200px;
+    background-color:brown;
+    width: 30%;
+    padding: 1%;
+}
+
+.Stuff {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.Stufff {
+    text-align: center;
+}

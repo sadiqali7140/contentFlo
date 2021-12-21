@@ -10,6 +10,10 @@ let data = {
   image_url: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
 }
 
+function GetContent() {
+  return
+}
+
 function PostCard() {
   return (
     <div>

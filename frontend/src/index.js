@@ -9,8 +9,8 @@ import Revisions from "./pages/revisions/revisions";
 import Post from "./pages/post/post";
 
 ReactDOM.render(
-  // <Home />,
+  <Home />,
   // <Revisions />,
-  <Post />,
+  // <Post />,
   document.getElementById("root")
 );

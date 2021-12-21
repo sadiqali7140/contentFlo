@@ -154,7 +154,7 @@ router.post('/', async (req, res, next) => {
     }
 })
 
-// Delete user by _id
+// Delete content by _id
 router.delete('/:id', (req, res, next) => {
     const id = req.params.id;
 

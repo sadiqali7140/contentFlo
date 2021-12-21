@@ -6,9 +6,11 @@ import QuickView from "./components/quickView/quickView";
 // import ContentPlan from "./pages/contentPlan/contentPlan";
 import Home from "./pages/home/home";
 import Revisions from "./pages/revisions/revisions";
+import Post from "./pages/post/post";
 
 ReactDOM.render(
-  <Home />,
+  // <Home />,
   // <Revisions />,
+  <Post />,
   document.getElementById("root")
 );

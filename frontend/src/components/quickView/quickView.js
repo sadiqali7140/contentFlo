@@ -1,9 +1,10 @@
 import React from "react";
 // import ReactDOM from "react-dom";
 import "./quickView.css";
-// import "../../index.css";
+import "../../index.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
+import PostCard from "../postCard/postCard";
 
 function QuickView() {
   return (
@@ -17,14 +18,15 @@ function QuickView() {
               options={{
                 type: "loop",
                 pagination: false,
-                // height: "50vh",
-                // speed: '0',
+                height: "50%",
+                // speed: '1',
                 autoplay: false,
                 // interval: '0',
               }}
             >
               <SplideSlide>
-                <div>
+                <div className="Slider">
+                  <PostCard />
                   <div className="Stuff">
                     <span>Task 1</span>
                     <span>Very Important</span>
@@ -47,7 +49,7 @@ function QuickView() {
               options={{
                 type: "loop",
                 pagination: false,
-                // height: "50vh",
+                height: "50%",
                 // speed: '0',
                 autoplay: false,
                 // interval: '0',
@@ -55,6 +57,7 @@ function QuickView() {
             >
               <SplideSlide>
                 <div>
+                  <PostCard />
                   <div className="Stuff">
                     <span>Task 1</span>
                     <span>Very Important</span>
@@ -68,7 +71,6 @@ function QuickView() {
             </Splide>
           </div>
         </div>
-
         <div className="LastNPostContainer">
           <h1 className="primary-font">Last 'N' Posts</h1>
           <h4 className="primary-font">Lorem Ipsum Dotor</h4>
@@ -77,7 +79,7 @@ function QuickView() {
               options={{
                 type: "loop",
                 pagination: false,
-                // height: "50vh",
+                height: "50%",
                 // speed: '0',
                 autoplay: false,
                 // interval: '0',
@@ -85,6 +87,7 @@ function QuickView() {
             >
               <SplideSlide>
                 <div>
+                  <PostCard />
                   <div className="Stuff">
                     <span>Task 1</span>
                     <span>Very Important</span>

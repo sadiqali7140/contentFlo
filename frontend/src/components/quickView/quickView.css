@@ -13,33 +13,45 @@ body {
 .ActionItemContainer {
     min-width: 200px;
     min-height: 200px;
-    background-color: white;
+    background-color: #d3d3d3;
     width: 30%;
     padding: 1%;
+    padding-bottom: 2%;
 }
 
 .ComingUpContainer {
     min-width: 200px;
     min-height: 200px;
-    background-color: white;
+    background-color: #d3d3d3;
     width: 30%;
     padding: 1%;
+    padding-bottom: 2%;
 }
 
 .LastNPostContainer {
     min-width: 200px;
     min-height: 200px;
-    background-color: white;
+    background-color: #d3d3d3;
     width: 30%;
     padding: 1%;
+    padding-bottom: 2%;
 }
 
 .Stuff {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     gap: 40px;
 }
 
 .Stufff {
     text-align: center;
+    padding-top: 5%;
+}
+
+.Slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: safe;
+    align-items:center;
 }

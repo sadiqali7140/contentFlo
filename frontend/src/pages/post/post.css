@@ -1,3 +1,21 @@
 .Base {
-    background-color: #eb4a38;
+    background: color #fff5af;;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding: 2%;
+    justify-content: center;
 }
+
+.ImageContainer {
+    height: auto;
+    /* width: 150%; */
+}
+
+.Text {
+
+}
+
+.Approval {}
+
+.Comments {}

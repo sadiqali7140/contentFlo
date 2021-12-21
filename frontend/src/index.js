@@ -8,7 +8,7 @@ import Home from "./pages/home/home";
 import Revisions from "./pages/Revisions/revisions";
 
 ReactDOM.render(
-//   <Home />,
-  <Revisions />,
+  <Home />,
+  // <Revisions />,
   document.getElementById("root")
 );

@@ -124,7 +124,7 @@ router.post('/', async (req, res, next) => {
                     description: req.body.description,
                     caption: req.body.caption,
                     approved: false,
-                    created_date: Date.now,
+                    created_date: Date.now(),
                     upload_date: req.body.upload_date
                 })
 

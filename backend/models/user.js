@@ -25,10 +25,10 @@ const UserSchema = new Schema({
         enum: ['admin', 'client'],
         required: true,
     },
-    client: {
-        type: Schema.Types.ObjectId,
-        ref: 'Client'
-    }
+    client: [{ 
+        type : Schema.Types.ObjectId,
+        ref: 'Client'  
+    }]
 });
 
 const User = mongoose.model('User', UserSchema);

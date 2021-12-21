@@ -40,3 +40,6 @@ app.use('/auth', authentication)
 
 const content = require('./routes/content')
 app.use('/content', content)
+
+const comment = require('./routes/comment')
+app.use('/comment', comment)

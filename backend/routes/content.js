@@ -170,8 +170,7 @@ router.post('/addComment', async (req, res, nexxt) => {
                 let doc= await Content.findOne(Content.ObjectID)
                 doc.comment.push(
                     {
-                        name : req.body.comment.name,
-                        message : req.body.comment.message
+                        comment : req.body.comment
                     }
                 )
             console.log("pickME")

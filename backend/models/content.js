@@ -11,8 +11,8 @@ const ContentSchema = new Schema({
     description: String,
     caption: String,
     approved: Boolean,
-    created_date: Date,
-    upload_date: Date,
+    created_date: String,
+    upload_date: String,
 });
 
 const Content = mongoose.model('Content', ContentSchema);

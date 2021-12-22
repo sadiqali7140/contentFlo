@@ -13,25 +13,7 @@ function Post() {
     approved: true
   };
   
-  // const [content, setContent] = useState([])
   
-  // useEffect(() => {
-  //   async function fetchMyAPI() { //first time call when page opens
-  //     await getContent()
-  //   }
-  
-  //   setHeaders({
-  //       'Content-Type': 'application/json',
-  //       'x-access-token': sessionStorage.getItem('x-token')
-  //   })
-  
-  //   fetchMyAPI()
-  // }, [])
-  
-  // async function getContent() {
-  //   let response = await axios.get("http://localhost:3000/api/content/" + {id})
-  //   setContent(response.data.data)
-  // }
   
   return (
     <div>

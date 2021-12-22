@@ -5,6 +5,7 @@ const User = require('../models/user')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { Schema } = require('mongoose');
+const { findById } = require('../models/user');
 
 // GET /users
 // GET /users/email
@@ -150,6 +151,37 @@ router.post('/', async (req, res, next) => {
                     })
                 })
             }
+        })
+    }
+})
+
+// Add comment in content
+router.post('/addComment', async (req, res, nexxt) => {
+    const token = req.headers['x-access-token']
+    if(!token) return res.json({
+        message: "Token Not Found"
+    })
+    else {
+        jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {
+            if(err) return res.json({
+                message: "Token Authentication Failed"
+            })
+            else {
+                let doc= await Content.findOne(Content.ObjectID)
+                doc.comment.push(
+                    {
+                        name : req.body.comment.name,
+                        message : req.body.comment.message
+                    }
+                )
+            console.log("pickME")
+            return res.json(
+                {
+                    message: "comment successful"
+                   }
+            )
+            }
+            
         })
     }
 })

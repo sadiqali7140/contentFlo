@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
             if(err) return res.json({message: "Token Authentication Failed"
         })
         else {
-            Comment.find({ content : req.Content._id })
+            Comment.find({ author: req.body.author })
             .then((data) => res.json(data))
             .catch(next);
         }

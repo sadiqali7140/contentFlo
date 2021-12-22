@@ -13,28 +13,28 @@ let data = {
 };
 
 function PostCard({ setselectedpostcard }) {
-  // const [content, setContent] = useState([]);
+  const [content, setContent] = useState([]);
 
-  // useEffect(() => {
-  //   async function fetchMyAPI() {
-  //     //first time call when page opens
-  //     await getContent();
-  //   }
+  useEffect(() => {
+    async function fetchMyAPI() {
+      //first time call when page opens
+      await getContent();
+    }
 
-  //   setHeaders({
-  //     "Content-Type": "application/json",
-  //     "x-access-token": sessionStorage.getItem("x-token"),
-  //   });
+    setHeaders({
+      "Content-Type": "application/json",
+      "x-access-token": sessionStorage.getItem("x-token"),
+    });
 
-  //   fetchMyAPI();
-  // }, []);
+    fetchMyAPI();
+  }, []);
 
-  // async function getContent() {
-  //   let response = await axios.get(
-  //     "http://localhost:3000/api/content/" + { id }
-  //   );
-  //   setContent(response.data.data);
-  // }
+  async function getContent() {
+    let response = await axios.get(
+      "http://localhost:3000/api/content/" + { id }
+    );
+    setContent(response.data.data);
+  }
 
   return (
     <div>
@@ -48,14 +48,14 @@ function PostCard({ setselectedpostcard }) {
           <div className="ContentCard">
             <div className="ContentContainer">
               <div className="ImageContainer">
-                <img src={data.image_url} alt="new"></img>
+                <img src={content.image_url} alt="new"></img>
               </div>
               <div className="MetaData">
                 <div className="Title">
-                  <h1 className="primary-font">{data.title}</h1>
-                  <h4 className="primary-font">{data.date}</h4>
+                  <h1 className="primary-font">{content.title}</h1>
+                  <h4 className="primary-font">{content.date}</h4>
                 </div>
-                <p className="primary-font">{data.short_desciption}</p>
+                <p className="primary-font">{content.short_desciption}</p>
               </div>
             </div>
           </div>

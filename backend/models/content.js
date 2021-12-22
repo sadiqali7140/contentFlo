@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 const ContentSchema = new Schema({
     client: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
+        type: Schema.Types.ObjectId ,
+        ref: 'User',
+    }, 
     image_url: String,
     title: String,
     description: String,

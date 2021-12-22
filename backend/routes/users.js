@@ -67,7 +67,7 @@ router.post('/', async (req, res, next) => {
         last_name: req.body.last_name.toLowerCase(),
         email: req.body.email.toLowerCase(),
         password: userPassword,
-        role: 'client',
+        role: req.body.role,
     });
 
     res.set('Content-Type', 'application/json');

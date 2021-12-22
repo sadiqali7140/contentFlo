@@ -43,3 +43,6 @@ app.use('/content', content)
 
 const comment = require('./routes/comment')
 app.use('/comment', comment)
+
+//const client = require('./routes/client')
+//app.use('/client', client)

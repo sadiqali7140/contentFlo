@@ -115,10 +115,10 @@ router.post('/', async (req, res, next) => {
             })
             else {
                 const content = new Content({
-                    client: {
-                        type: Schema.Types.ObjectID,
-                        ref: req.body.user
-                    },
+                   // client: {
+                       // type: Schema.Types.ObjectID,
+                     //   ref: req.body.user
+                   // },
                     image_url: req.body.image_url.toLowerCase(),
                     title: req.body.title,
                     description: req.body.description,

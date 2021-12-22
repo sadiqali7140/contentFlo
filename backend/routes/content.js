@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Content = require('../models/content');
+const User = require('../models/user')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { Schema } = require('mongoose');
@@ -114,11 +115,12 @@ router.post('/', async (req, res, next) => {
                 message: "Token Authentication Failed"
             })
             else {
+                
                 const content = new Content({
-                   // client: {
-                       // type: Schema.Types.ObjectID,
-                     //   ref: req.body.user
-                   // },
+                    client: {
+                        type: Schema.Types.ObjectID,
+                        ref: req.body.user
+                    },
                     image_url: req.body.image_url.toLowerCase(),
                     title: req.body.title,
                     description: req.body.description,
@@ -134,6 +136,7 @@ router.post('/', async (req, res, next) => {
                 .then(results => {
                     res.send({
                         data: {
+                            client : results.client,
                             image_url: results.image_url,
                             title: results.title,
                             description: results.description,

@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 require('crypto').randomBytes(64).toString('hex')
 require('dotenv').config()
+const cors = require('cors')
 
 const app = express()
 app.use(express.json())
@@ -16,6 +17,7 @@ mongoose
     .catch((err) => console.log(err))
 
 mongoose.Promise = global.Promise
+app.use(cors())
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')

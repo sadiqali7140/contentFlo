@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import "./addPost.css";
 import "../../index.css"
 import { useState } from "react";
+import axios from "axios"
 
 export default function AddPost() {
     const [data, setData] = useState({
@@ -12,22 +13,23 @@ export default function AddPost() {
         description: "",
         caption: "",
         approved: false,
-        created_date: "",
+        created_date: "", //remember to add thsi in form
         upload_date: ""
     })
 
     const [message, setMessage] = useState([])
-    const [headers, setHeaders] = useState({})
+    // const [headers, setHeaders] = useState({})
+    let headers = {}
   
   useEffect(() => {
     async function fetchMyAPI() { //first time call when page opens
     }
   
-    setHeaders({
+    headers = {
         'Content-Type': 'application/json',
         'x-access-token': sessionStorage.getItem('x-token')
-    })
-  
+        // 'x-access-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMTUzOTkwLCJleHAiOjE2NDAyNDAzOTB9.ttZ-VJ_vOYdxF0VGeuGbzcIDB9Da3MIoDhVU-OZADPI"
+    }
 
     fetchMyAPI()
   }, [])
@@ -37,14 +39,15 @@ export default function AddPost() {
 
   async function addPost() {
       setMessage("Adding New Post")
-      let response = await axios.post('http://localhost:3000/content/', data, {headers: headers})
-      setMessage(response.data.header.message)
+      let response = await axios.post('http://localhost:5000/content/', data, {headers: headers})
+      setMessage(response.data.message)
+        // console.log(response)
   }
 
   return (
       <div className="container">
           <div className="containerFormSection">
-              <h4 classname="primary-font">Add New Post</h4>
+              <h4 className="primary-font">Add New Post</h4>
               <form className="primary-font form">
                   <div className="col-1">
                       <label>Post Title:</label> <br />

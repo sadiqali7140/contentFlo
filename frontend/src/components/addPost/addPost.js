@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import "./addPost.css";
 import "../../index.css"
 import { useState } from "react";
+import axios from "axios"
 
 export default function AddPost() {
     const [data, setData] = useState({
@@ -37,14 +38,15 @@ export default function AddPost() {
 
   async function addPost() {
       setMessage("Adding New Post")
-      let response = await axios.post('http://localhost:3000/content/', data, {headers: headers})
-      setMessage(response.data.header.message)
+      let response = await axios.post('http://localhost:5000/content/', data, {headers: headers})
+    //   setMessage(response.data.header.message)
+        console.log(response)
   }
 
   return (
       <div className="container">
           <div className="containerFormSection">
-              <h4 classname="primary-font">Add New Post</h4>
+              <h4 className="primary-font">Add New Post</h4>
               <form className="primary-font form">
                   <div className="col-1">
                       <label>Post Title:</label> <br />

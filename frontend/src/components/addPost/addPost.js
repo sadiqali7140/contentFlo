@@ -1,8 +1,11 @@
 import React from "react";
+import { ReactDOM } from "react";
+import { useEffect } from "react";
 import "./addPost.css";
 import "../../index.css"
+import { useState } from "react";
 
-function AddPost() {
+export default function AddPost() {
     const [data, setData] = useState({
         image_url: "",
         title: "",
@@ -13,7 +16,7 @@ function AddPost() {
         upload_date: ""
     })
 
-    const [message, setMessage] = useState("")
+    const [message, setMessage] = useState([])
     const [headers, setHeaders] = useState({})
   
   useEffect(() => {
@@ -25,6 +28,7 @@ function AddPost() {
         'x-access-token': sessionStorage.getItem('x-token')
     })
   
+
     fetchMyAPI()
   }, [])
 
@@ -74,5 +78,3 @@ function AddPost() {
       </div>
   )
 }
-
-export default AddPost()

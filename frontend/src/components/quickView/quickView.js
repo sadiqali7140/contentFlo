@@ -36,7 +36,18 @@ function QuickView() {
                   </div>
                 </div>
               </SplideSlide>
-              <SplideSlide></SplideSlide>
+              <SplideSlide>
+              <div className="Slider">
+                  <PostCard />
+                  <div className="Stuff">
+                    <span>Task 1</span>
+                    <span>Very Important</span>
+                  </div>
+                  <div className="Stufff">
+                    <button>button</button>
+                  </div>
+                </div>
+              </SplideSlide>
             </Splide>
           </div>
         </div>

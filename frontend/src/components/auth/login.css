@@ -1,0 +1,39 @@
+.Login{
+    margin-top: 10%;
+    padding: 5%;
+    align-items: center;
+}
+
+h1{
+    color:black;
+    font-size: 80px;
+    font-family: "Roboto", sans-serif;
+}
+
+p{
+    color:grey;
+    font-family: "Roboto", sans-serif;
+}
+
+.Input{
+    color: white;
+    background-color: #1b2956;
+    border: none;
+    width: 40%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+}
+
+.Button{
+    margin-top: 40px;
+    color: white;
+    background-color:gray;
+    border: none;
+    width: 40%;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 5px;
+    font-family: "Roboto", sans-serif;
+}

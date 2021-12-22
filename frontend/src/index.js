@@ -8,11 +8,13 @@ import ReactDOM from "react-dom";
 // import Revisions from "./pages/revisions/revisions";
 import Post from "./pages/post/post";
 // import AddPost from "./components/addPost/addPost"
+import Login from "./components/auth/login"
 
 ReactDOM.render(
   // <Home />,
   // <Revisions />,
-  <Post />,
+  // <Post />,
   // <AddPost />,
+  <Login />,
   document.getElementById("root")
 );

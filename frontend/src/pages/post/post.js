@@ -1,19 +1,43 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./post.css";
 import axios from "axios";
 
 
-function Post() {
-  let data = {
-    image_url: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
-    title: "Title",
-    upload_date: "upload date",
-    caption: "Caption",
-    description: "Description is this",
-    approved: true
-  };
-  
-  
+export default function Post() {
+  const [data, setData] = useState({
+    image_url: "",
+    title: "",
+    description: "",
+    caption: "",
+    approved: "",
+    created_date: "", //remember to add thsi in form
+    upload_date: ""
+})
+
+const [message, setMessage] = useState([])
+// const [headers, setHeaders] = useState({})
+let headers = {}
+
+useEffect(() => {
+async function fetchMyAPI() {
+  await getContent() //first time call when page opens
+}
+
+headers = {
+    'Content-Type': 'application/json',
+    // 'x-access-token': sessionStorage.getItem('x-token')
+    'x-access-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMTU1NDkzLCJleHAiOjE2NDAyNDE4OTN9.405tgdA7gOqDlKn2M90hORUhySx41-ETlc2rUM_rBaE"
+}
+
+fetchMyAPI()
+}, [])
+
+async function getContent() {
+  // let response = await axios.get('http://localhost:5000/content/' + {_id})
+  let response = await axios.get('http://localhost:5000/content/61c2a249cd784b96de249ca1', {headers: headers})
+  // console.log(response)
+  setData(response.data.data)
+}
   
   return (
     <div>
@@ -37,5 +61,3 @@ function Post() {
     </div>
   );
 }
-
-export default Post;

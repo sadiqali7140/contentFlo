@@ -13,22 +13,23 @@ export default function AddPost() {
         description: "",
         caption: "",
         approved: false,
-        created_date: "",
+        created_date: "", //remember to add thsi in form
         upload_date: ""
     })
 
     const [message, setMessage] = useState([])
-    const [headers, setHeaders] = useState({})
+    // const [headers, setHeaders] = useState({})
+    let headers = {}
   
   useEffect(() => {
     async function fetchMyAPI() { //first time call when page opens
     }
   
-    setHeaders({
+    headers = {
         'Content-Type': 'application/json',
         'x-access-token': sessionStorage.getItem('x-token')
-    })
-  
+        // 'x-access-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMTUzOTkwLCJleHAiOjE2NDAyNDAzOTB9.ttZ-VJ_vOYdxF0VGeuGbzcIDB9Da3MIoDhVU-OZADPI"
+    }
 
     fetchMyAPI()
   }, [])
@@ -39,8 +40,8 @@ export default function AddPost() {
   async function addPost() {
       setMessage("Adding New Post")
       let response = await axios.post('http://localhost:5000/content/', data, {headers: headers})
-    //   setMessage(response.data.header.message)
-        console.log(response)
+      setMessage(response.data.message)
+        // console.log(response)
   }
 
   return (

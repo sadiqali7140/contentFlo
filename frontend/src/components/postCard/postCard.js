@@ -2,16 +2,17 @@ import React from "react";
 import "./postCard.css";
 import "../../index.css";
 
- let data = {
-    image_url: "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
-    title: "Title",
-    upload_date: "upload date",
-    caption: "Caption",
-    short_desciption: "Description is this",
-    approved: true
-  };
+let data = {
+  image_url:
+    "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  title: "Title",
+  upload_date: "upload date",
+  caption: "Caption",
+  short_desciption: "Description is this",
+  approved: true,
+};
 
-function PostCard() {
+function PostCard({ setselectedpostcard }) {
   // const [content, setContent] = useState([]);
 
   // useEffect(() => {
@@ -37,22 +38,29 @@ function PostCard() {
 
   return (
     <div>
-      <div className="Heading">
-        <div className="ContentCard">
-          <div className="ContentContainer">
-            <div className="ImageContainer">
-              <img src={data.image_url} alt="new"></img>
-            </div>
-            <div className="MetaData">
-              <div className="Title">
-                <h1 className="primary-font">{data.title}</h1>
-                <h4 className="primary-font">{data.date}</h4>
+      <button
+        type="button"
+        onClick={() => {
+          setselectedpostcard(data._id)
+        }}
+      >
+        <div className="Heading">
+          <div className="ContentCard">
+            <div className="ContentContainer">
+              <div className="ImageContainer">
+                <img src={data.image_url} alt="new"></img>
               </div>
-              <p className="primary-font">{data.short_desciption}</p>
+              <div className="MetaData">
+                <div className="Title">
+                  <h1 className="primary-font">{data.title}</h1>
+                  <h4 className="primary-font">{data.date}</h4>
+                </div>
+                <p className="primary-font">{data.short_desciption}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </button>
     </div>
   );
 }

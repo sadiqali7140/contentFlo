@@ -6,13 +6,13 @@ import ReactDOM from "react-dom";
 // import ContentPlan from "./pages/contentPlan/contentPlan";
 // import Home from "./pages/home/home";
 // import Revisions from "./pages/revisions/revisions";
-// import Post from "./pages/post/post";
-import AddPost from "./components/addPost/addPost"
+import Post from "./pages/post/post";
+// import AddPost from "./components/addPost/addPost"
 
 ReactDOM.render(
   // <Home />,
   // <Revisions />,
-  // <Post />,
-  <AddPost />,
+  <Post />,
+  // <AddPost />,
   document.getElementById("root")
 );

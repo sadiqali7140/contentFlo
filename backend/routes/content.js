@@ -172,7 +172,10 @@ router.post('/addComment', async (req, res, next) => {
 
                 doc.comment.push(
                     {
-                        comment : req.body.comment
+                        comment : {
+                            name : req.body.comment.name ,
+                            message: req.body.comment.message
+                        }
                     }
                 )
             console.log("pickME")

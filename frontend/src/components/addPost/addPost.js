@@ -1,19 +1,20 @@
 import React from "react";
-import "./addPost.css"
-import axios from "axios";
+import "./addPost.css";
+import "../../index.css"
 
-export default function AddPost() {
+function AddPost() {
     const [data, setData] = useState({
         image_url: "",
-        title: "".
-        description = "",
-        caption = "",
-        approved = false,
+        title: "",
+        description: "",
+        caption: "",
+        approved: false,
         created_date: "",
         upload_date: ""
     })
 
-    const [content, setContent] = useState([])
+    const [message, setMessage] = useState("")
+    const [headers, setHeaders] = useState({})
   
   useEffect(() => {
     async function fetchMyAPI() { //first time call when page opens
@@ -68,7 +69,10 @@ export default function AddPost() {
                         </button>
                   </div>
               </form>
+              {message === "" ? <></> : <h1>{message}</h1>}
           </div>
       </div>
   )
 }
+
+export default AddPost()

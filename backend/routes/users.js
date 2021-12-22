@@ -34,9 +34,9 @@ router.get('/', (req, res, next) => {
 })
 
 // User by email
-router.get('/email', (req, res, next) => {
-    // const email = req.body.email;
-    // console.log(email)
+router.get('/:email', (req, res, next) => {
+     //const email = req.body.email;
+     //console.log(email)
 
     const token = req.headers['x-access-token']
     if(!token) return res.json({

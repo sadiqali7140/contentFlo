@@ -167,18 +167,21 @@ router.post('/addComment', async (req, res, next) => {
                 message: "Token Authentication Failed"
             })
             else {
-                console.log(Content.ObjectID)
-                let doc= await Content.findOne( { _id : req.body._id})
+                let id= req.body._id
+                let content = await Content.findOne({
+                    _id: id
+                })
+                console.log(data)
+            //     console.log(Content.ObjectID)
+            //     let doc= await Content.findOne({ _id : req.body._id})
 
-                doc.comment.push(
-                    {
-                        comment : {
-                            name : req.body.comment.name ,
-                            message: req.body.comment.message
-                        }
-                    }
-                )
-            console.log("pickME")
+            //     doc.comment.push(
+            //         {
+            //             name: req.body.name,
+            //             comment : req.body.comment
+            //         }
+            //     )
+            // console.log("pickME")
             return res.json(
                 {
                     message: "comment successful"

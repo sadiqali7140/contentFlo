@@ -1,19 +1,23 @@
 import React from "react";
-import "./addPost.css"
-import axios from "axios";
+import { ReactDOM } from "react";
+import { useEffect } from "react";
+import "./addPost.css";
+import "../../index.css"
+import { useState } from "react";
 
 export default function AddPost() {
     const [data, setData] = useState({
         image_url: "",
-        title: "".
-        description = "",
-        caption = "",
-        approved = false,
+        title: "",
+        description: "",
+        caption: "",
+        approved: false,
         created_date: "",
         upload_date: ""
     })
 
-    const [content, setContent] = useState([])
+    const [message, setMessage] = useState([])
+    const [headers, setHeaders] = useState({})
   
   useEffect(() => {
     async function fetchMyAPI() { //first time call when page opens
@@ -24,6 +28,7 @@ export default function AddPost() {
         'x-access-token': sessionStorage.getItem('x-token')
     })
   
+
     fetchMyAPI()
   }, [])
 
@@ -68,6 +73,7 @@ export default function AddPost() {
                         </button>
                   </div>
               </form>
+              {message === "" ? <></> : <h1>{message}</h1>}
           </div>
       </div>
   )

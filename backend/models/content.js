@@ -13,6 +13,10 @@ const ContentSchema = new Schema({
     approved: Boolean,
     created_date: String,
     upload_date: String,
+    comment : [{
+        name : String,
+        message : String
+    } ]
 });
 
 const Content = mongoose.model('Content', ContentSchema);

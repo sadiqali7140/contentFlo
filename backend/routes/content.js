@@ -168,10 +168,15 @@ router.post('/addComment', async (req, res, next) => {
             })
             else {
                 let id= req.body._id
-                let content = await Content.findOne({
-                    _id: id
-                })
-                console.log(data)
+                let content = await Content.findOneAndUpdate( {_id: id },
+                    {
+                        comment : {
+                            name : req.body.comment.name,
+                            message: req.body.comment.message
+                        }
+                    }
+                )
+                console.log(content)
             //     console.log(Content.ObjectID)
             //     let doc= await Content.findOne({ _id : req.body._id})
 

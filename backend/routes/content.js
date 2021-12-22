@@ -156,7 +156,7 @@ router.post('/', async (req, res, next) => {
 })
 
 // Add comment in content
-router.post('/addComment', async (req, res, nexxt) => {
+router.post('/addComment', async (req, res, next) => {
     const token = req.headers['x-access-token']
     if(!token) return res.json({
         message: "Token Not Found"
@@ -167,7 +167,9 @@ router.post('/addComment', async (req, res, nexxt) => {
                 message: "Token Authentication Failed"
             })
             else {
-                let doc= await Content.findOne(Content.ObjectID)
+                console.log(Content.ObjectID)
+                let doc= await Content.findOne( { _id : req.body._id})
+
                 doc.comment.push(
                     {
                         comment : req.body.comment

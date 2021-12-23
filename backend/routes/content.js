@@ -47,8 +47,9 @@ router.get('/:id', (req, res, next) => {
             else {
                             
                 const id = req.params.id
+                // console.log(id)
                 Content.findOne({
-                    id: id
+                    _id: id
                 })
                     .then((results) => res.json({
                         data: {

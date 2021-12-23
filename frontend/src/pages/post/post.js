@@ -26,7 +26,7 @@ async function fetchMyAPI() {
 headers = {
     'Content-Type': 'application/json',
     // 'x-access-token': sessionStorage.getItem('x-token')
-    'x-access-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMTU1NDkzLCJleHAiOjE2NDAyNDE4OTN9.405tgdA7gOqDlKn2M90hORUhySx41-ETlc2rUM_rBaE"
+    'x-access-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMjc5NTQxLCJleHAiOjE2NDAzNjU5NDF9.IkdNB1o7RyAvVD-zcFff1ZWDMWzIb-FiEupelrBZjPA"
 }
 
 fetchMyAPI()

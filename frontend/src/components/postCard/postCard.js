@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+// import ReacDOM from "react-dom";
 import "./postCard.css";
 import "../../index.css";
+import axios from "axios";
 
 let data = {
+  _id: "61c2a249cd784b96de249ca1",
   image_url:
     "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
   title: "Title",
@@ -12,26 +15,33 @@ let data = {
   approved: true,
 };
 
+let headers = { "x-access-token": sessionStorage.getItem("x-token") };
+
 function PostCard({ setselectedpostcard }) {
   const [content, setContent] = useState([]);
 
   useEffect(() => {
     async function fetchMyAPI() {
       //first time call when page opens
-      await getContent();
+      content= await getContent(data._id);
+      console.log(content)
     }
 
-    setHeaders({
-      "Content-Type": "application/json",
-      "x-access-token": sessionStorage.getItem("x-token"),
-    });
+    // headers = {
+    //   "x-access-token": sessionStorage.getItem("x-token"),
+    // };
+
+    headers = {
+      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMjc5NTQxLCJleHAiOjE2NDAzNjU5NDF9.IkdNB1o7RyAvVD-zcFff1ZWDMWzIb-FiEupelrBZjPA",
+    };
 
     fetchMyAPI();
   }, []);
 
-  async function getContent() {
+  async function getContent(_id) {
     let response = await axios.get(
-      "http://localhost:3000/api/content/" + { id }
+      "http://localhost:5000/content/" + _id,
+      {headers: headers}
     );
     setContent(response.data.data);
   }
@@ -41,7 +51,7 @@ function PostCard({ setselectedpostcard }) {
       <button
         type="button"
         onClick={() => {
-          setselectedpostcard(data._id)
+          setselectedpostcard(data._id);
         }}
       >
         <div className="Heading">

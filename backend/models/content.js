@@ -14,7 +14,9 @@ const ContentSchema = new Schema({
     created_date: String,
     upload_date: String,
     comment : [{
-        name : String,
+        name : {
+            type : Schema.Types.ObjectId, ref : 'User'
+        },
         message : String
     } ]
 });

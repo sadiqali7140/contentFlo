@@ -2,7 +2,7 @@ import React from "react";
 import "./calendarCard.css";
 import "../../index.css";
 
-function Card() {
+function CalendarCard() {
   return (
     <div>
       <div className="Heading">

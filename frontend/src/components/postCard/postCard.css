@@ -15,21 +15,23 @@
 
 .ImageContainer {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: left;
     padding: 2%;
+
 }
 
 .MetaData {
     width: 100%;
     padding-inline: 2%;
     padding-bottom: 2%;
+    text-align: left;
 }
 
 .Title {
     display: flex;
     flex-direction: row;
     justify-content:space-between;
-    align-items: center;
+    align-items: left;
     padding-right: 6%;
 }

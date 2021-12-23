@@ -170,11 +170,12 @@ router.post('/addComment', async (req, res, next) => {
             else {
                 let id= req.body._id
                 let content = await Content.findOneAndUpdate( {_id: id },
+             //   content.comment.push(
                     {
-                        comment : {
+                        $push : { comment : {
                             name : req.body.comment.name,
                             message: req.body.comment.message
-                        }
+                        }}
                     }
                 )
                 console.log(content)

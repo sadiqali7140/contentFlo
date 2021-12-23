@@ -53,11 +53,11 @@ export default function Login({ setLoggedInUI }) {
 
   return (
     <div className="Login">
-      <h1 style={LoginStyle.h1}>LOGIN</h1>
+      <h1 className="text-2">LOGIN</h1>
       {/* INPUT AREA */}
       <form onSubmit={handleSubmit}>
         <label className="Label">
-          <p>EMAIL ID</p>
+          <p className="text-1">EMAIL ID</p>
           <input
             className="Input"
             type="text"
@@ -65,7 +65,7 @@ export default function Login({ setLoggedInUI }) {
           />
         </label>
         <label>
-          <p>PASSWORD</p>
+          <p className="text-1">PASSWORD</p>
           <input
             className="Input"
             type="password"

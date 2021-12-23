@@ -7,13 +7,13 @@
     align-items: center;
 }
 
-h1{
+.text-2{
     color: white;
     font-size: 64px;
     font-family: "Roboto", sans-serif;
 }
 
-p{
+.text-1{
     color: #c4c4c4;
     font-family: "Roboto", sans-serif;
 }

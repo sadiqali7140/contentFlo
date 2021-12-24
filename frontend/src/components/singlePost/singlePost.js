@@ -30,25 +30,20 @@ export default function SinglePost() {
   let [content, setContent] = useState([]);
   let [checked, setChecked] = useState();
   let [comments, getComments] = useState([]);
-  let [data, setComment] = useState([]);
+  let [data, setComment] = useState({
+      message: "",
+})
   const params = useParams();
 //   console.log(params)
 
   useEffect(() => {
     async function fetchMyAPI() {
         content = await getContent(params.id); //first time call when page opens
-        // console.log(params);
     }
 
     headers = {
       "x-access-token": sessionStorage.getItem("x-token"),
     };
-    // console.log(headers)
-
-    // headers = {
-    //   "x-access-token":
-    //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMjc5NTQxLCJleHAiOjE2NDAzNjU5NDF9.IkdNB1o7RyAvVD-zcFff1ZWDMWzIb-FiEupelrBZjPA",
-    // };
 
     fetchMyAPI();
   }, []);
@@ -59,21 +54,30 @@ export default function SinglePost() {
     });
     setContent(response.data.data);
     getComments(response.data.data.comment);
-    // console.log(response.data.data.comment);
   }
 
   const handleChange = () => {
     setChecked(!checked);
-    content.approved = checked; //needs to call update content API to change the data on the backend
-    console.log(content.appr);
+    console.log(checked) //needs to call update content API to change the data on the backend
+    content.approved=checked
+    axios.post("http://localhost:5000/content/approve/", checked, {
+      headers: headers,
+    });
   };
 
   function handleComment(e) {
-    setComment({ ...data, [e.taget.name]: e.target.value});
+    setComment({ ...data, [e.target.name]: e.target.value});
   }
   
   async function addComment(data) {
-    await axios.post("http://localhost:5000/content/" + id, {
+    let req = {
+      _id: params.id,
+      comment: {
+        message: data.message,
+      },
+    }
+    console.log(req)
+    await axios.post("http://localhost:5000/content/addComment", req, {
       headers: headers,
     });
   }
@@ -111,7 +115,7 @@ export default function SinglePost() {
             />
           </div>
           <div className="Comments">
-            <h4>Comments:</h4>
+            <h4 className="primary-font">Comments:</h4>
             {comments.map((item) => (
               <option key={item._id} value={item.name}>
                 {/* {item.name} */}
@@ -119,18 +123,19 @@ export default function SinglePost() {
               </option>
             ))}
           </div>
-          <div className="AddCommentContainer">
-          <form className="primary-font form">
-            <div className="col-0">
-              <label>Add new feeback</label> <br />
-              <input 
-                type="text"
-                name="comment"
-                value={data.comment}
-                onChange={handleComment}
-              />
-            </div>
-          </form>
+          <div>
+          <form className="primary-font-form">
+          <div>
+            <label>Add feedback</label> <br />
+            <textarea
+              type="text"
+              rows="5"
+              cols="60"
+              name="message"
+              value={data.message}
+              onChange={handleComment}
+            />
+          </div>
           <div>
             <button
               className="AddButton"
@@ -139,9 +144,10 @@ export default function SinglePost() {
                 await addComment(data);
               }}
             >
-              Add comment
+              ADD POST
             </button>
-            </div>
+          </div>
+        </form>
           </div>
         </div>
       </div>

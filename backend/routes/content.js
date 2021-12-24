@@ -221,6 +221,39 @@ router.get('/comments', (req, res, next) => {
     }
 })
 
+//Approve Content
+router.post('/approve', async (req, res, next) => {
+    const token = req.headers['x-access-token']
+    if(!token) return res.json({
+        message: "Token Not Found"
+    })
+    else {
+        jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {
+            if(err) return res.json({
+                message: "Token Authentication Failed"
+            })
+            else {
+                let id= req.body._id
+                console.log(id)
+             /*   let content = await Content.findOneAndUpdate( {_id: id },
+             //   content.comment.push(
+                    {
+                        approved : req.body.approved
+                    }
+                )
+                console.log(content)
+            */
+            return res.json(
+                {
+                    message: "Content approved"
+                   }
+            )
+            }
+            
+        })
+    }
+})
+
 // Delete content by _id
 router.delete('/:id', (req, res, next) => {
     const id = req.params.id;

@@ -34,6 +34,27 @@
     width: 0;
     visibility: hidden;
   }
+
+  .AddCommentContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+  }
+  
+  .AddButton{
+    border: none;
+    width: 50%;
+    margin-top: 10px;
+    height: 24px;
+    font-size: 12px;
+    border-radius: 2%;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bolder;
+}
   
   .react-switch-label {
     display: flex;

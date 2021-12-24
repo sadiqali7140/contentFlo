@@ -29,7 +29,8 @@ export default function SinglePost() {
 
   let [content, setContent] = useState([]);
   let [checked, setChecked] = useState();
-  let [comments, setComments] = useState([]);
+  let [comments, getComments] = useState([]);
+  let [data, setComment] = useState([]);
   const params = useParams();
 //   console.log(params)
 
@@ -57,7 +58,7 @@ export default function SinglePost() {
       headers: headers,
     });
     setContent(response.data.data);
-    setComments(response.data.data.comment);
+    getComments(response.data.data.comment);
     // console.log(response.data.data.comment);
   }
 
@@ -66,6 +67,16 @@ export default function SinglePost() {
     content.approved = checked; //needs to call update content API to change the data on the backend
     console.log(content.appr);
   };
+
+  function handleComment(e) {
+    setComment({ ...data, [e.taget.name]: e.target.value});
+  }
+  
+  async function addComment(data) {
+    await axios.post("http://localhost:5000/content/" + id, {
+      headers: headers,
+    });
+  }
 
   const Checkbox = ({ label, value, onChange }) => {
     return (
@@ -107,6 +118,30 @@ export default function SinglePost() {
                 {item.message}
               </option>
             ))}
+          </div>
+          <div className="AddCommentContainer">
+          <form className="primary-font form">
+            <div className="col-0">
+              <label>Add new feeback</label> <br />
+              <input 
+                type="text"
+                name="comment"
+                value={data.comment}
+                onChange={handleComment}
+              />
+            </div>
+          </form>
+          <div>
+            <button
+              className="AddButton"
+              type="button"
+              onClick={async () => {
+                await addComment(data);
+              }}
+            >
+              Add comment
+            </button>
+            </div>
           </div>
         </div>
       </div>

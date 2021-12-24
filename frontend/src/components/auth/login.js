@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
-import LoginStyle from "./login.css";
+import "./login.css";
 
 export default function Login({ setLoggedInUI }) {
   const [email, setEmail] = useState("");

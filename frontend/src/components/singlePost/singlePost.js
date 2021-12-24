@@ -31,8 +31,7 @@ export default function SinglePost() {
   let [checked, setChecked] = useState();
   let [comments, getComments] = useState([]);
   let [data, setComment] = useState({
-    name: "",
-    message: "",
+      message: "",
 })
   const params = useParams();
 //   console.log(params)
@@ -68,7 +67,14 @@ export default function SinglePost() {
   }
   
   async function addComment(data) {
-    await axios.post("http://localhost:5000/content/addComment", data, {
+    let req = {
+      _id: params.id,
+      comment: {
+        message: data.message,
+      },
+    }
+    console.log(req)
+    await axios.post("http://localhost:5000/content/addComment", req, {
       headers: headers,
     });
   }
@@ -106,7 +112,7 @@ export default function SinglePost() {
             />
           </div>
           <div className="Comments">
-            <h4>Comments:</h4>
+            <h4 className="primary-font">Comments:</h4>
             {comments.map((item) => (
               <option key={item._id} value={item.name}>
                 {/* {item.name} */}
@@ -114,18 +120,19 @@ export default function SinglePost() {
               </option>
             ))}
           </div>
-          <div className="AddCommentContainer">
-          <form className="primary-font form">
-            <div className="col-0">
-              <label>Add new feeback</label> <br />
-              <input 
-                type="text"
-                name="comment"
-                value={data.comment}
-                onChange={handleComment}
-              />
-            </div>
-          </form>
+          <div>
+          <form className="primary-font-form">
+          <div>
+            <label>Add feedback</label> <br />
+            <textarea
+              type="text"
+              rows="5"
+              cols="60"
+              name="message"
+              value={data.message}
+              onChange={handleComment}
+            />
+          </div>
           <div>
             <button
               className="AddButton"
@@ -134,9 +141,10 @@ export default function SinglePost() {
                 await addComment(data);
               }}
             >
-              Add comment
+              ADD POST
             </button>
-            </div>
+          </div>
+        </form>
           </div>
         </div>
       </div>

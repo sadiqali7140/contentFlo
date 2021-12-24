@@ -36,9 +36,12 @@
   }
 
   .AddCommentContainer{
-    display: flex;
-    flex-direction: column;
     padding: 5%;
+    margin-top: 10px;
+  }
+
+  .primary-font-form{
+    font-family: "Roboto", sans-serif;
   }
   
   .AddButton{

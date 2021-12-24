@@ -53,7 +53,7 @@ export default function PostCard({ setselectedpostcard }) {
           <div className="ContentCard">
             <div className="ContentContainer">
               <div className="ImageContainer">
-                <img src={content.image_url} height={"270px"} width={"500px"} alt="new"></img>
+                <img src={content.image_url} height={"250px"} width={"400px"} alt="new"></img>
               </div>
               <div className="MetaData">
                 <div className="Title">

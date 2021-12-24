@@ -39,7 +39,7 @@ router.post('/login', async (req, res, next) => {
                         })
                         res.json({
                             message:"Success",
-                            token: `Bearer + ${token}`
+                            token: `${token}`
                         })       
                 }
                 else {

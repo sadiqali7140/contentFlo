@@ -2,7 +2,6 @@ import React from "react";
 import { ReactDOM } from "react";
 import { useEffect } from "react";
 import "./addPost.css";
-import "../../index.css";
 import { useState } from "react";
 import axios from "axios";
 
@@ -29,7 +28,7 @@ export default function AddPost() {
 
     headers = {
     //   "x-access-token": sessionStorage.getItem("x-token"),
-      'x-access-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMjc5NTQxLCJleHAiOjE2NDAzNjU5NDF9.IkdNB1o7RyAvVD-zcFff1ZWDMWzIb-FiEupelrBZjPA"
+      'x-access-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMjk5MjA4LCJleHAiOjE2NDAzODU2MDh9.M5oDsdXvmqJT5HvsXMylA-TRGgYehT2edU3HWFYl1rs"
     };
 
     fetchMyAPI();
@@ -51,7 +50,7 @@ export default function AddPost() {
   return (
     <div className="container">
       <div className="containerFormSection">
-        <h4 className="primary-font">Add New Post</h4>
+        <h1 className="primary-font">Add New Post</h1>
         <form className="primary-font form">
           <div className="col-1">
             <label>Post Title:</label> <br />
@@ -104,6 +103,7 @@ export default function AddPost() {
           </div>
           <div>
             <button
+              className="Button"
               type="button"
               onClick={async () => {
                 await addPost();

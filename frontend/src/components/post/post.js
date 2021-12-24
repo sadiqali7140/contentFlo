@@ -27,27 +27,53 @@ export default function Post() {
   // });
 
   let [content, setContent] = useState([]);
+  let [checked, setChecked] = useState();
 
   useEffect(() => {
     async function fetchMyAPI() {
       content = await getContent(data._id); //first time call when page opens
+      console.log(data._id)
     }
 
-// headers = {
-    //   "x-access-token": sessionStorage.getItem("x-token"),
-    // };
-
     headers = {
-      "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMjc5NTQxLCJleHAiOjE2NDAzNjU5NDF9.IkdNB1o7RyAvVD-zcFff1ZWDMWzIb-FiEupelrBZjPA",
+      "x-access-token": sessionStorage.getItem("x-token"),
     };
+    // console.log(headers)
+
+    // headers = {
+    //   "x-access-token":
+    //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMjc5NTQxLCJleHAiOjE2NDAzNjU5NDF9.IkdNB1o7RyAvVD-zcFff1ZWDMWzIb-FiEupelrBZjPA",
+    // };
 
     fetchMyAPI();
   }, []);
 
   async function getContent(id) {
-    let response = await axios.get("http://localhost:5000/content/" + id, { headers: headers });
+    let response = await axios.get("http://localhost:5000/content/" + id, {
+      headers: headers,
+    });
+    console.log(headers)
     setContent(response.data.data);
   }
+
+  const handleChange = () => {
+    setChecked(!checked);
+    content.approved=checked //needs to call update content API to change the data on the backend
+    console.log(content)
+  };
+
+  const Checkbox = ({ label, value, onChange }) => {
+    return (
+      <label>
+        <input
+          type="checkbox"
+          checked={value}
+          onChange={onChange}
+        />
+        {label}
+      </label>
+    );
+  };
 
   return (
     <div>
@@ -63,7 +89,14 @@ export default function Post() {
             <p className="primary-font">Description: {content.description}</p>
           </div>
           <div className="Approval">
-            <h4 className="primary-font">Approval Status: {content.approved}</h4>
+            <h4 className="primary-font">
+              Approval Status: {content.approved}
+            </h4>
+            <Checkbox
+              label="   Good to go?"
+              value={content.approved}
+              onChange={handleChange}
+            />
           </div>
           <div className="Comments"></div>
         </div>

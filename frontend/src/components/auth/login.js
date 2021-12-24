@@ -15,38 +15,35 @@ export default function Login({ setLoggedInUI }) {
   // Main function that calls the login api
   async function loginAPI(emailField, passwordField) {
     // To avoid pressing on login button while request is being performed
-    if (isSending) return;
+    if (isSending)
+      return;
 
     setIsSending(true);
     if (emailField == "" || passwordField == "") {
       setErrorMessage("Empty Fields");
       setErrorVisible(true);
       setIsSending(false);
+      console.log("sabar ka phal meetha hota hy");
       return;
     }
 
     try {
-      let response = await axios.post(
-        "http://localhost:5000/auth/login",
-        {
-          'email': emailField,
-          'password': passwordField,
-        },
-        // {
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        // }
-      );
-      let json = response.data;
-      console.log(response)
-    //   await verifyLogin(json)
-    if (response.data.message === "Success") {
-        sessionStorage.setItem("x-token", response.data.token)
-        console.log(sessionStorage.getItem("x-token"))
-    }
+      let response = await axios.post("http://localhost:5000/auth/login", {
+        email: emailField,
+        password: passwordField,
+      });
+      // let json = response.data;
+      console.log(response);
+      if (response.data.message === "Success") {
+        sessionStorage.setItem("x-token", response.data.token);
+        setErrorVisible(true)
+        setErrorMessage("Login Successful")
+        // console.log(sessionStorage.getItem("x-token"));
+      }
       setIsSending(false);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const handleSubmit = async (e) => {
@@ -56,11 +53,11 @@ export default function Login({ setLoggedInUI }) {
 
   return (
     <div className="Login">
-      <h1 style={LoginStyle.h1}>LOGIN</h1>
+      <h1 className="text-2">LOGIN</h1>
       {/* INPUT AREA */}
       <form onSubmit={handleSubmit}>
         <label className="Label">
-          <p>EMAIL ID</p>
+          <p className="text-1">EMAIL ID</p>
           <input
             className="Input"
             type="text"
@@ -68,7 +65,7 @@ export default function Login({ setLoggedInUI }) {
           />
         </label>
         <label>
-          <p>PASSWORD</p>
+          <p className="text-1">PASSWORD</p>
           <input
             className="Input"
             type="password"

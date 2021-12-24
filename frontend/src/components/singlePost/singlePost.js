@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./post.css";
+import "./singlePost.css";
 import axios from "axios";
 
 let data = {
@@ -16,7 +16,7 @@ let data = {
 
 let headers = { "x-access-token": sessionStorage.getItem("x-token") };
 
-export default function Post() {
+export default function SinglePost() {
   // let [content, setContent] = useState({
   //   image_url: "",
   //   title: "",
@@ -30,13 +30,13 @@ export default function Post() {
   let [content, setContent] = useState([]);
   let [checked, setChecked] = useState();
   let [comments, setComments] = useState([]);
-  // const params = useParams();
-  // console.log(params)
+  const params = useParams();
+//   console.log(params)
 
   useEffect(() => {
     async function fetchMyAPI() {
-      content = await getContent(data._id); //first time call when page opens
-      console.log(data._id);
+        content = await getContent(params.id); //first time call when page opens
+        // console.log(params);
     }
 
     headers = {
@@ -56,7 +56,6 @@ export default function Post() {
     let response = await axios.get("http://localhost:5000/content/" + id, {
       headers: headers,
     });
-    // console.log(headers)
     setContent(response.data.data);
     setComments(response.data.data.comment);
     // console.log(response.data.data.comment);

@@ -8,6 +8,7 @@ import Home from "./pages/home/home";
 import Post from "./components/post/post";
 import AddPost from "./components/addPost/addPost";
 import Login from "./components/auth/login";
+import SinglePost from "./components/singlePost/singlePost"
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.render(
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/view" element={<Post />} />
+        <Route path="/view/:id" element={<SinglePost />} />
         <Route path="/add" element={<AddPost />} />
         <Route path="/posts" element={<ContentPlan />} />
       </Routes>

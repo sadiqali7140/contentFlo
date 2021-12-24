@@ -263,6 +263,46 @@ router.post('/approve', async (req, res, next) => {
     }
 })
 
+//Update Content
+router.post('/update', async (req, res, next) => {
+    /* return res.json({
+         message : "Api not broken"
+     }) */
+    
+     const token = req.headers['x-access-token']
+     if(!token) return res.json({
+         message: "Token Not Found"
+     })
+     else {
+       /*  return res.json({
+             message : "Good till here"
+         }) */
+         jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {
+             if(err) return res.json({
+                 message: "Token Authentication Failed"
+             })
+             else {
+                 let id= req.body._id
+               //  console.log(id)
+                 let content = await Content.findOneAndUpdate( {_id: id },
+              //   content.comment.push(
+                     {
+                        $set : req.body
+                     }
+                 )
+                 console.log(content)
+             
+             return res.json(
+                 {
+                     message: "Content updated"
+                    }
+             )
+             }
+             
+         })
+     }
+ })
+
 // Delete content by _id
 router.delete('/:id', (req, res, next) => {
     const id = req.params.id;

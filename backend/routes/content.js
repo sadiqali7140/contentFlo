@@ -202,7 +202,7 @@ router.post('/addComment', async (req, res, next) => {
 })
 
 //View all comments on a post
-router.get('/comments', (req, res, next) => {
+router.get('/:id/comments', (req, res, next) => {
     const token = req.headers['x-access-token']
     if(!token) return res.json({
         message: "Token Not Found"
@@ -213,8 +213,9 @@ router.get('/comments', (req, res, next) => {
                 message: "Token Authentication Failed"
             })
             else {
-                Content.findOne()
-                .then((data) => res.json(data))
+                let id= req.params.id 
+                Content.findOne( {_id : id})
+                .then((data) => res.json(data.comment))
                 .catch(next);
             }
         })
@@ -223,26 +224,33 @@ router.get('/comments', (req, res, next) => {
 
 //Approve Content
 router.post('/approve', async (req, res, next) => {
+   /* return res.json({
+        message : "Api not broken"
+    }) */
+   
     const token = req.headers['x-access-token']
     if(!token) return res.json({
         message: "Token Not Found"
     })
     else {
+      /*  return res.json({
+            message : "Good till here"
+        }) */
         jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {
             if(err) return res.json({
                 message: "Token Authentication Failed"
             })
             else {
                 let id= req.body._id
-                console.log(id)
-             /*   let content = await Content.findOneAndUpdate( {_id: id },
+              //  console.log(id)
+                let content = await Content.findOneAndUpdate( {_id: id },
              //   content.comment.push(
                     {
                         approved : req.body.approved
                     }
                 )
                 console.log(content)
-            */
+            
             return res.json(
                 {
                     message: "Content approved"

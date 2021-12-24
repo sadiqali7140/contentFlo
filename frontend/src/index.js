@@ -5,7 +5,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import ContentPlan from "./pages/contentPlan/contentPlan";
 import Home from "./pages/home/home";
-import Revisions from "./pages/revisions/revisions";
 import Post from "./components/post/post";
 import AddPost from "./components/addPost/addPost";
 import Login from "./components/auth/login";

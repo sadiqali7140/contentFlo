@@ -3,7 +3,7 @@ import "./post.css";
 import axios from "axios";
 
 let data = {
-  _id: "61c4b0064e0088fc92e4ab63",
+  _id: "61c2a2cdcd784b96de249ca4",
   image_url:
     "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
   title: "Title",
@@ -54,6 +54,7 @@ export default function Post() {
     });
     console.log(headers)
     setContent(response.data.data);
+    console.log(response.data)
   }
 
   const handleChange = () => {
@@ -98,7 +99,9 @@ export default function Post() {
               onChange={handleChange}
             />
           </div>
-          <div className="Comments"></div>
+          <div className="Comments">
+              {/* <p className="primary-font">{content.commment.message}</p> */}
+          </div>
         </div>
       </div>
     </div>

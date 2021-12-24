@@ -30,25 +30,21 @@ export default function SinglePost() {
   let [content, setContent] = useState([]);
   let [checked, setChecked] = useState();
   let [comments, getComments] = useState([]);
-  let [data, setComment] = useState([]);
+  let [data, setComment] = useState({
+    name: "",
+    message: "",
+})
   const params = useParams();
 //   console.log(params)
 
   useEffect(() => {
     async function fetchMyAPI() {
         content = await getContent(params.id); //first time call when page opens
-        // console.log(params);
     }
 
     headers = {
       "x-access-token": sessionStorage.getItem("x-token"),
     };
-    // console.log(headers)
-
-    // headers = {
-    //   "x-access-token":
-    //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMjc5NTQxLCJleHAiOjE2NDAzNjU5NDF9.IkdNB1o7RyAvVD-zcFff1ZWDMWzIb-FiEupelrBZjPA",
-    // };
 
     fetchMyAPI();
   }, []);
@@ -59,7 +55,6 @@ export default function SinglePost() {
     });
     setContent(response.data.data);
     getComments(response.data.data.comment);
-    // console.log(response.data.data.comment);
   }
 
   const handleChange = () => {
@@ -69,11 +64,11 @@ export default function SinglePost() {
   };
 
   function handleComment(e) {
-    setComment({ ...data, [e.taget.name]: e.target.value});
+    setComment({ ...data, [e.target.name]: e.target.value});
   }
   
   async function addComment(data) {
-    await axios.post("http://localhost:5000/content/" + id, {
+    await axios.post("http://localhost:5000/content/addComment", data, {
       headers: headers,
     });
   }

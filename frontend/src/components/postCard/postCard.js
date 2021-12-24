@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./postCard.css";
 import axios from "axios";
-import Post from "../post/post"
+import { Link, Route } from "react-router-dom";
 
 // let data = {
 //   _id: "61c4b0064e0088fc92e4ab63",
@@ -19,9 +19,10 @@ let headers = { "x-access-token": sessionStorage.getItem("x-token") };
 
 export default function PostCard({ id, setselectedpostcard }) {
   let [content, setContent] = useState([]);
-  console.log(id)
+  console.log(id);
   useEffect(() => {
-    async function fetchMyAPI() { //first time call when page opens
+    async function fetchMyAPI() {
+      //first time call when page opens
       content = await getContent(id);
     }
 
@@ -38,35 +39,47 @@ export default function PostCard({ id, setselectedpostcard }) {
   }, []);
 
   async function getContent(id) {
-    let response = await axios.get("http://localhost:5000/content/" + id, { headers: headers });
+    let response = await axios.get("http://localhost:5000/content/" + id, {
+      headers: headers,
+    });
     setContent(response.data.data);
   }
 
   return (
     <div>
-      <button
-        type="button"
-        onClick={() => {
-          setselectedpostcard(content._id);
-        }}
-      >
-        <div className="Heading">
-          <div className="ContentCard">
-            <div className="ContentContainer">
-              <div className="ImageContainer">
-                <img src={content.image_url} height={"250px"} width={"400px"} alt="new"></img>
-              </div>
-              <div className="MetaData">
-                <div className="Title">
-                  <h1 className="primary-font">{content.title}</h1>
-                  <h4 className="primary-font">{content.date}</h4>
+      <React.Fragment>
+      <Link to="/view/" >
+        <button
+          className="RoutingButton"
+          type="button"
+          onClick={() => {
+            setselectedpostcard(content._id);
+          }}
+        >
+          <div className="Heading">
+            <div className="ContentCard">
+              <div className="ContentContainer">
+                <div className="ImageContainer">
+                  <img
+                    src={content.image_url}
+                    width="100%"
+                    height="100%"
+                    alt="new"
+                  ></img>
                 </div>
-                <p className="primary-font">{content.description}</p>
+                <div className="MetaData">
+                  <div className="Title">
+                    <h1 className="primary-font">{content.title}</h1>
+                    <h4 className="primary-font">{content.date}</h4>
+                  </div>
+                  <p className="primary-font">{content.description}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </button>
+        </button>
+      </Link>
+      </React.Fragment>
     </div>
   );
 }

@@ -136,6 +136,7 @@ router.post('/', async (req, res, next) => {
                 .then(results => {
                     res.send({
                         data: {
+                            _id: results._id,
                             client : results.client,
                             image_url: results.image_url,
                             title: results.title,

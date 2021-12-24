@@ -34,3 +34,8 @@
     align-items: left;
     padding-right: 6%;
 }
+
+.RoutingButton {
+    width: 100%;
+    height: 100%;
+}

@@ -43,7 +43,8 @@ export default function AddPost() {
     let response = await axios.post("http://localhost:5000/content/", data, {
       headers: headers,
     });
-    setMessage(response.data.message);
+    // console.log(response)
+    setMessage(response.data.data._id);
     // console.log(response)
   }
 

@@ -31,9 +31,9 @@ export default function QuickView() {
                     <span>Task 1</span>
                     <span>Very Important</span>
                   </div> */}
-                  <div className="Stufff">
+                  {/* <div className="Stufff">
                     <button>button</button>
-                  </div>
+                  </div> */}
                 </div>
               </SplideSlide>
               <SplideSlide>
@@ -43,9 +43,9 @@ export default function QuickView() {
                     <span>Task 1</span>
                     <span>Very Important</span>
                   </div> */}
-                  <div className="Stufff">
+                  {/* <div className="Stufff">
                     <button>button</button>
-                  </div>
+                  </div> */}
                 </div>
               </SplideSlide>
             </Splide>
@@ -73,9 +73,9 @@ export default function QuickView() {
                     <span>Task 1</span>
                     <span>Very Important</span>
                   </div> */}
-                  <div className="Stufff">
+                  {/* <div className="Stufff">
                     <button>button</button>
-                  </div>
+                  </div> */}
                 </div>
               </SplideSlide>
             </Splide>
@@ -102,9 +102,9 @@ export default function QuickView() {
                     <span>Task 1</span>
                     <span>Very Important</span>
                   </div> */}
-                  <div className="Stufff">
+                  {/* <div className="Stufff">
                     <button>button</button>
-                  </div>
+                  </div> */}
                 </div>
               </SplideSlide>
             </Splide>

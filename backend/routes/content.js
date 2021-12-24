@@ -200,6 +200,28 @@ router.post('/addComment', async (req, res, next) => {
     }
 })
 
+//View all comments on a post
+router.get('/viewComment', (req, res, next) => {
+    const token = req.headers['x-access-token']
+    if(!token) return res.json({
+        message: "Token Not Found"
+    })
+    else {
+        jwt.verify(token, process.env.JWT_SECRET, async function (err, decoded) {
+            if(err) return res.json({
+                message: "Token Authentication Failed"
+            })
+            else {
+               // Content.find().all()
+                //.then((data) => res.json(data))
+                //.catch(next);
+                console.log("Contents")
+            
+            }
+        })
+    }
+})
+
 // Delete content by _id
 router.delete('/:id', (req, res, next) => {
     const id = req.params.id;

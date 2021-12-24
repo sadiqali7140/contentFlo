@@ -27,21 +27,23 @@ export default function Post() {
   // });
 
   let [content, setContent] = useState([]);
-  let [checked, setChecked] = useState(false);
+  let [checked, setChecked] = useState();
 
   useEffect(() => {
     async function fetchMyAPI() {
       content = await getContent(data._id); //first time call when page opens
+      console.log(data._id)
     }
 
-    // headers = {
-    //   "x-access-token": sessionStorage.getItem("x-token"),
-    // };
-
     headers = {
-      "x-access-token":
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMjc5NTQxLCJleHAiOjE2NDAzNjU5NDF9.IkdNB1o7RyAvVD-zcFff1ZWDMWzIb-FiEupelrBZjPA",
+      "x-access-token": sessionStorage.getItem("x-token"),
     };
+    console.log(headers)
+
+    // headers = {
+    //   "x-access-token":
+    //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgxNjFiYzJhYThhNTBiMjM4NGNiYmQiLCJlbWFpbCI6Indhc2lmLmthcmltQGhvdG1haWwuY29tIiwiaWF0IjoxNjQwMjc5NTQxLCJleHAiOjE2NDAzNjU5NDF9.IkdNB1o7RyAvVD-zcFff1ZWDMWzIb-FiEupelrBZjPA",
+    // };
 
     fetchMyAPI();
   }, []);

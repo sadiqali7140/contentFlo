@@ -59,7 +59,8 @@ router.get('/:id', (req, res, next) => {
                             caption: results.caption,
                             approved: results.approved,
                             created_date: results.created_date,
-                            upload_date:  results.upload_date
+                            upload_date: results.upload_date,
+                            comment: results.comment
                         }
                     }))
                     .catch(next)
@@ -201,7 +202,7 @@ router.post('/addComment', async (req, res, next) => {
 })
 
 //View all comments on a post
-router.get('/viewComment', (req, res, next) => {
+router.get('/comments', (req, res, next) => {
     const token = req.headers['x-access-token']
     if(!token) return res.json({
         message: "Token Not Found"
@@ -212,11 +213,9 @@ router.get('/viewComment', (req, res, next) => {
                 message: "Token Authentication Failed"
             })
             else {
-                Content.find().all()
+                Content.findOne()
                 .then((data) => res.json(data))
                 .catch(next);
-                //console.log("Contents")
-            
             }
         })
     }

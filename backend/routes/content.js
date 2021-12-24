@@ -169,12 +169,13 @@ router.post('/addComment', async (req, res, next) => {
                 message: "Token Authentication Failed"
             })
             else {
+                let decodeToken = jwt.decode(token)
                 let id= req.body._id
                 let content = await Content.findOneAndUpdate( {_id: id },
              //   content.comment.push(
                     {
                         $push : { comment : {
-                            name : req.body.comment.name,
+                            name : decodeToken._id,
                             message: req.body.comment.message
                         }}
                     }

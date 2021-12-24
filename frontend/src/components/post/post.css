@@ -23,6 +23,12 @@
   font-family: "Roboto", sans-serif;
 }
 
+.Comments{
+  color: #181818;
+  padding-left: 24px;
+  font-family: "Roboto", sans-serif;
+}
+
 .react-switch-checkbox {
   height: 0;
   width: 0;

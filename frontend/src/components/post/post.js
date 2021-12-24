@@ -4,7 +4,7 @@ import "./post.css";
 import axios from "axios";
 
 let data = {
-  _id: "61c2a2cdcd784b96de249ca4",
+  _id: "61c4b0064e0088fc92e4ab63",
   image_url:
     "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
   title: "Title",
@@ -87,7 +87,7 @@ export default function Post() {
       <div className="Base">
         <div>
           <div className="ImageContainer">
-            <img src={content.image_url} alt="new"></img>
+            <img src={content.image_url} width={600} height={400} alt="new"></img>
           </div>
           <div className="Text">
             <h1 className="primary-font">{content.title}</h1>

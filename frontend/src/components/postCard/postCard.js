@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "./postCard.css";
 import axios from "axios";
+import Post from "../post/post"
 
-let data = {
-  _id: "61c4b0064e0088fc92e4ab63",
-  // _id: "61c26d93f093c3de6204fe6a",
-  image_url:
-    "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
-  title: "Title",
-  upload_date: "upload date",
-  caption: "Caption",
-  short_desciption: "Description is this",
-  approved: true,
-};
+// let data = {
+//   _id: "61c4b0064e0088fc92e4ab63",
+//   // _id: "61c26d93f093c3de6204fe6a",
+//   image_url:
+//     "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+//   title: "Title",
+//   upload_date: "upload date",
+//   caption: "Caption",
+//   short_desciption: "Description is this",
+//   approved: true,
+// };
 
 let headers = { "x-access-token": sessionStorage.getItem("x-token") };
 
-export default function PostCard({ setselectedpostcard }) {
+export default function PostCard({ id, setselectedpostcard }) {
   let [content, setContent] = useState([]);
-
+  console.log(id)
   useEffect(() => {
     async function fetchMyAPI() { //first time call when page opens
-      content = await getContent(data._id);
+      content = await getContent(id);
     }
 
     // headers = {

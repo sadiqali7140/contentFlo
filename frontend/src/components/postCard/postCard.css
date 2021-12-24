@@ -1,7 +1,7 @@
 .Heading {
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    /* justify-content: left; */
     gap: 24px;
     padding: 5%;
 }
@@ -14,8 +14,8 @@
 }
 
 .ImageContainer {
-    display: flex;
-    flex-wrap: wrap;
+    /* display: flex;
+    flex-wrap: wrap; */
     justify-content: center;
     padding: 2%;
 }
@@ -28,8 +28,8 @@
 }
 
 .Title {
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     justify-content:space-between;
     align-items: left;
     padding-right: 6%;

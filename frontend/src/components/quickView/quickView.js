@@ -6,7 +6,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import PostCard from "../postCard/postCard";
 
-function QuickView() {
+export default function QuickView() {
   return (
     <div>
       <div className="Heading">
@@ -26,11 +26,11 @@ function QuickView() {
             >
               <SplideSlide>
                 <div className="Slider">
-                  <PostCard />
-                  <div className="Stuff">
+                  <PostCard id="61c4b0064e0088fc92e4ab63"/>
+                  {/* <div className="Stuff">
                     <span>Task 1</span>
                     <span>Very Important</span>
-                  </div>
+                  </div> */}
                   <div className="Stufff">
                     <button>button</button>
                   </div>
@@ -38,11 +38,11 @@ function QuickView() {
               </SplideSlide>
               <SplideSlide>
               <div className="Slider">
-                  <PostCard />
-                  <div className="Stuff">
+                  <PostCard id="61c5ba996ec074768463ba76"/>
+                  {/* <div className="Stuff">
                     <span>Task 1</span>
                     <span>Very Important</span>
-                  </div>
+                  </div> */}
                   <div className="Stufff">
                     <button>button</button>
                   </div>
@@ -68,17 +68,16 @@ function QuickView() {
             >
               <SplideSlide>
                 <div>
-                  <PostCard />
-                  <div className="Stuff">
+                  <PostCard id="61c4fae4468a1941c5f548a1"/>
+                  {/* <div className="Stuff">
                     <span>Task 1</span>
                     <span>Very Important</span>
-                  </div>
+                  </div> */}
                   <div className="Stufff">
                     <button>button</button>
                   </div>
                 </div>
               </SplideSlide>
-              <SplideSlide></SplideSlide>
             </Splide>
           </div>
         </div>
@@ -98,17 +97,16 @@ function QuickView() {
             >
               <SplideSlide>
                 <div>
-                  <PostCard />
-                  <div className="Stuff">
+                  <PostCard id="61c4c555fa23f757e157c8d0"/>
+                  {/* <div className="Stuff">
                     <span>Task 1</span>
                     <span>Very Important</span>
-                  </div>
+                  </div> */}
                   <div className="Stufff">
                     <button>button</button>
                   </div>
                 </div>
               </SplideSlide>
-              <SplideSlide></SplideSlide>
             </Splide>
           </div>
         </div>
@@ -116,5 +114,3 @@ function QuickView() {
     </div>
   );
 }
-
-export default QuickView;

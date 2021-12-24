@@ -1,96 +1,103 @@
 .Base {
-    background: color #fff5af;
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    padding: 2%;
-    justify-content: center;
-  }
-  
-  .ImageContainer {
-    height: auto;
-    /* width: 150%; */
-  }
-  
-  .Text {
-    color: #181818;
-    padding-left: 24px;
-  }
-  
-  .Approval {
-    color: #181818;
-    padding-left: 24px;
-    font-family: "Roboto", sans-serif;
-  }
-  
-  .Comments{
-    color: #181818;
-    padding-left: 24px;
-    font-family: "Roboto", sans-serif;
-  }
-  
-  .react-switch-checkbox {
-    height: 0;
-    width: 0;
-    visibility: hidden;
-  }
-
-  .AddCommentContainer{
-    padding: 5%;
-    margin-top: 10px;
-  }
-
-  .primary-font-form{
-    font-family: "Roboto", sans-serif;
-  }
-  
-  .AddButton{
-    border: none;
-    width: 50%;
-    margin-top: 10px;
-    height: 24px;
-    font-size: 12px;
-    border-radius: 2%;
-    padding-left: 24px;
-    padding-right: 24px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    font-family: "Roboto", sans-serif;
-    font-weight: bolder;
+  background: color #fff5af;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  padding: 2%;
+  justify-content: center;
 }
-  
-  .react-switch-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    width: 100px;
-    height: 50px;
-    background: grey;
-    border-radius: 100px;
-    position: relative;
-    transition: background-color 0.2s;
-  }
-  
-  .react-switch-label .react-switch-button {
-    content: "";
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 45px;
-    height: 45px;
-    border-radius: 45px;
-    transition: 0.2s;
-    background: #fff;
-    box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
-  }
-  
-  .react-switch-checkbox:checked + .react-switch-label .react-switch-button {
-    left: calc(100% - 2px);
-    transform: translateX(-100%);
-  }
-  
-  .react-switch-label:active .react-switch-button {
-    width: 60px;
-  }
-  
+
+.ImageContainer {
+  height: auto;
+  width: auto;
+}
+
+.Text {
+  color: #181818;
+  padding-left: 24px;
+}
+
+.Approval {
+  color: #181818;
+  padding-left: 24px;
+  font-family: "Roboto", sans-serif;
+}
+
+.Comments {
+  color: #181818;
+  padding-left: 24px;
+  font-family: "Roboto", sans-serif;
+  padding: 6px;
+}
+
+.react-switch-checkbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.AddCommentContainer {
+  padding: 5%;
+  margin-: 10px;
+}
+
+.primary-font-form {
+  font-family: "Roboto", sans-serif;
+}
+
+.feedback{
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+}
+
+.AddButton {
+  border: none;
+  width: 50%;
+  margin-top: 10px;
+  height: 24px;
+  font-size: 12px;
+  border-radius: 2%;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+}
+
+.react-switch-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  background: grey;
+  border-radius: 100px;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.react-switch-label .react-switch-button {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 45px;
+  height: 45px;
+  border-radius: 45px;
+  transition: 0.2s;
+  background: #fff;
+  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+}
+
+.react-switch-checkbox:checked + .react-switch-label .react-switch-button {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+
+.react-switch-label:active .react-switch-button {
+  width: 60px;
+}

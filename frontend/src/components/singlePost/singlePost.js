@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./singlePost.css";
 import axios from "axios";
+import "./singlePost.css";
 
-let data = {
-  _id: "61c2a2cdcd784b96de249ca4",
-  image_url:
-    "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
-  title: "Title",
-  upload_date: "upload date",
-  caption: "Caption",
-  short_desciption: "Description is this",
-  approved: true,
-};
+// let data = {
+//   _id: "61c2a2cdcd784b96de249ca4",
+//   image_url:
+//     "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+//   title: "Title",
+//   upload_date: "upload date",
+//   caption: "Caption",
+//   short_desciption: "Description is this",
+//   approved: true,
+// };
 
 let headers = { "x-access-token": sessionStorage.getItem("x-token") };
 
@@ -60,7 +60,11 @@ export default function SinglePost() {
     setChecked(!checked);
     console.log(checked) //needs to call update content API to change the data on the backend
     content.approved=checked
-    axios.post("http://localhost:5000/content/approve/", checked, {
+    let json = {
+      approved: checked,
+      _id: params.id
+    }
+    axios.post("http://localhost:5000/content/approve/", json, {
       headers: headers,
     });
   };
@@ -96,7 +100,7 @@ export default function SinglePost() {
       <div className="Base">
         <div>
           <div className="ImageContainer">
-            <img src={content.image_url} alt="new"></img>
+            <img src={content.image_url} width={600} height={400} alt="new"></img>
           </div>
           <div className="Text">
             <h1 className="primary-font">{content.title}</h1>
@@ -125,8 +129,8 @@ export default function SinglePost() {
           </div>
           <div>
           <form className="primary-font-form">
-          <div>
-            <label>Add feedback</label> <br />
+          <div className="Comments">
+            <label className="feedback">Add feedback</label> <br />
             <textarea
               type="text"
               rows="5"

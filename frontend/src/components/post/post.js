@@ -38,7 +38,7 @@ export default function Post() {
     headers = {
       "x-access-token": sessionStorage.getItem("x-token"),
     };
-    console.log(headers)
+    // console.log(headers)
 
     // headers = {
     //   "x-access-token":
@@ -52,8 +52,8 @@ export default function Post() {
     let response = await axios.get("http://localhost:5000/content/" + id, {
       headers: headers,
     });
+    console.log(headers)
     setContent(response.data.data);
-    console.log(response)
   }
 
   const handleChange = () => {

@@ -58,8 +58,11 @@ export default function SinglePost() {
 
   const handleChange = () => {
     setChecked(!checked);
-    content.approved = checked; //needs to call update content API to change the data on the backend
-    console.log(content.appr);
+    console.log(checked) //needs to call update content API to change the data on the backend
+    content.approved=checked
+    axios.post("http://localhost:5000/content/approve/", checked, {
+      headers: headers,
+    });
   };
 
   function handleComment(e) {

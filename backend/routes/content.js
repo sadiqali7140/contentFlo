@@ -106,7 +106,7 @@ router.get('/:client', (req, res, next) => {
     }
 })
 
-// ADD content by _id
+// ADD content
 router.post('/', async (req, res, next) => {
     const token = req.headers['x-access-token']
     if(!token) return res.json({
